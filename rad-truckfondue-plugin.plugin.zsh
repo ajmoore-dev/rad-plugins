@@ -1,6 +1,3 @@
-source "${0:a:h}/jc-cli-zaw.zsh"
-
-
 # ~/.zshrc
 ### z - opens ~/.zshrc
 alias z="subl /Users/alex.moore/.zshrc"
@@ -16,6 +13,7 @@ alias s="subl ."
 ### jn -Jupyter Notebook
 alias jn="jupyter notebook"
 
+export GIT_EDITOR="subl -w"
 
 # search
 ### gh - search history
@@ -60,6 +58,8 @@ alias gclear="git stash clear"
 alias cba="cd ~/code/cba-deploy"
 alias co="cd ~/code"
 alias dsl="cd ~/code/jenkins_dsl_jobs"
+alias gopath="cd ~/code/go"
 alias jd="cd ~/code/jenkins-docker"
 alias mp="cd ~/code/mac-provisioning"
 alias ptag="cd ~/code/go/src/ghe.megaleo.com/cban-ops/pt_tag"
+alias tf="cd ~/truckfondue"
