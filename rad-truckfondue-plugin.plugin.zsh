@@ -1,33 +1,31 @@
 # ~/.zshrc
-### z - opens ~/.zshrc
+### z - Opens ~/.zshrc
 alias z="subl /Users/alex.moore/.zshrc"
-### src - apply changes to ~/.zshrc
+### src - Apply changes to ~/.zshrc
 alias src="source ~/.zshrc"
 
 
 # editors
-### emacs - Spacemacs
-alias emacs="emacs -nw"
-### s - Sublime Text 3
+alias sm="emacs -nw"
 alias s="subl ."
-### jn -Jupyter Notebook
 alias jn="jupyter notebook"
 
-export GIT_EDITOR="subl -w"
 
 # search
-### gh - search history
+### gh - Search history
 alias gh="history | grep -i"
-### ag - search aliases
+### ag - Search aliases
 alias ag="alias | grep -i"
-### eg - search ENV_VARs
+### eg - Search ENV_VARs
 alias eg="env | grep -i"
 
 
 # macOS
-### showFiles - show hidden files (dotfiles)
+### showFiles - Show hidden files (dotfiles)
+### Example: showFiles
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-### hideFiles - hide hidden files (dotfiles)
+### hideFiles - Hide hidden files (dotfiles)
+### Example: showFiles
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 
@@ -63,3 +61,8 @@ alias jd="cd ~/code/jenkins-docker"
 alias mp="cd ~/code/mac-provisioning"
 alias ptag="cd ~/code/go/src/ghe.megaleo.com/cban-ops/pt_tag"
 alias tf="cd ~/truckfondue"
+
+# docker
+### dbash - exec into a running container
+### Example: dbash c157caf0538b
+dbash() { docker exec -it $1 bash }
