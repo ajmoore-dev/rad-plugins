@@ -53,13 +53,6 @@ alias gump="git checkout master && git fetch upstream --prune && git rebase upst
 alias gclear="git stash clear"
 
 # navigation
-alias cba="cd ~/code/cba-deploy"
-alias co="cd ~/code"
-alias dsl="cd ~/code/jenkins_dsl_jobs"
-alias gopath="cd ~/code/go"
-alias jd="cd ~/code/jenkins-docker"
-alias mp="cd ~/code/mac-provisioning"
-alias ptag="cd ~/code/go/src/ghe.megaleo.com/cban-ops/pt_tag"
 alias tf="cd ~/truckfondue"
 
 # docker
