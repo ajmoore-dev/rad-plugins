@@ -56,6 +56,13 @@ alias gclear="git stash clear"
 alias tf="cd ~/truckfondue"
 
 # docker
+alias dcd="docker-compose down -v"
 ### dbash - exec into a running container
 ### Example: dbash c157caf0538b
 dbash() { docker exec -it $1 bash }
+
+### dst - stop one or more running containers
+### Example: dst c157caf0538b f6d41f8ffd5d
+dst () {
+  docker stop "$@"
+}
