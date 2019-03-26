@@ -1,14 +1,20 @@
-# ~/.zshrc
 ### .rc - Opens ~/.zshrc
 alias .rc="code $HOME/.zshrc"
 ### s.rc - Apply changes to ~/.zshrc
-alias s.rc="source ~/.zshrc"
+alias s.rc="source $HOME/.zshrc"
+### c.rc - Change directories to $DOTFILES_DIR
+alias c.rc="cd $HOME/dotfiles"
+### e.rc - Open $DOTFILES_DIR in your visual editor
+alias e.rc() { $(rad-get-visual-editor) $HOME/dotfiles; }
 
 
-# editors
-alias c="code -nw"
-alias s="subl ."
+### c - Open the current working directory in VSC
+alias c="code -nw ."
+### s - Open the current working directory in ST3
+alias s="subl -n ."
 
+### co - Change directories to $HOME/code
+alias co="cd $HOME/code"
 
 # search
 ### eh - Search history
@@ -18,35 +24,18 @@ alias ea="alias | grep -i"
 ### ee - Search ENV_VARs
 alias ee="env | grep -i"
 
+### git-rebase - Synchronizes origin/master with upstream/master
+git-rebase() {
+  git checkout master
+  git fetch upstream --prune
+  git rebase upstream/master
+  git push origin master
+}
 
-# macOS
-### showFiles - Show hidden files (dotfiles)
-### Example: showFiles
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-### hideFiles - Hide hidden files (dotfiles)
-### Example: showFiles
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-
-
-# git -> most used commands simplified
-alias gaa="git add ."
-alias gb="git branch"
-alias gca="gaa && git commit --amend"
-alias gcb="git checkout -b"
-alias gcl="git clone"
-alias gcm="git checkout master"
-alias gcmsg="gaa && git commit -m"
-alias gco="git checkout"
-alias gd="git diff"
-alias gds="git diff --staged"
-alias gf="git fetch"
-alias ggpush="git push origin HEAD"
-alias gl="git log"
-alias gp="git stash pop"
-alias gr="git remote"
-alias gra="git remote add upstream"
-alias grv="git remote -v"
-alias gst="git status"
-alias gsta="git add . && git stash"
-alias gump="git checkout master && git fetch upstream --prune && git rebase upstream/master && git push origin master"
-alias gclear="git stash clear"
+### local-ip - Try finding the first ethernet adapter that has a valid ipv4 address
+local-ip() {
+  for i in `seq 0 10`; do
+    res="$(/sbin/ifconfig en${i} | grep 'inet' | grep -v inet6 | awk '{print $2}')"
+    [[ -n $res ]] && echo $res && return
+  done
+}
