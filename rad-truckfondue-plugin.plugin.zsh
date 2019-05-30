@@ -42,6 +42,12 @@ git-rebase() {
   git push origin master
 }
 
+### md - Convenience method to create a new directory and cd into it
+md () {
+  mkdir -p -- "$1"
+  cd -P -- "$1"
+}
+
 # local-ip - Try finding the first ethernet adapter that has a valid ipv4 address
 local-ip() {
   for i in `seq 0 10`; do
