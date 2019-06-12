@@ -1,7 +1,5 @@
 ### c - Open the current working directory in VSC
 alias c="code -n ."
-### s - Open the current working directory in ST3
-alias s="subl -n"
 
 ### co - Change directories to $HOME/code
 alias co="cd $HOME/code"
