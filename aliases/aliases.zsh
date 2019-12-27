@@ -6,18 +6,18 @@ alias co="cd $HOME/code"
 
 # search
 ### eh - Search history
-alias eh="history | grep -i"
+alias grh="history | grep -i"
 ### ea - Search aliases
-alias ea="alias | grep -i"
+alias gra="alias | grep -i"
 ### ee - Search ENV_VARs
-alias ee="env | grep -i"
+alias gre="env | grep -i"
 
 #k8s
 alias k="kubectl"
 alias kctx="kubectx"
-alias kns="kubens"
 
 # git
+alias git="hub"
 alias ga="git add"
 alias gaa="git add --all"
 alias gb="git branch"
@@ -44,12 +44,4 @@ git-rebase() {
 md () {
   mkdir -p -- "$1"
   cd -P -- "$1"
-}
-
-# local-ip - Try finding the first ethernet adapter that has a valid ipv4 address
-local-ip() {
-  for i in `seq 0 10`; do
-    res="$(/sbin/ifconfig en${i} | grep 'inet' | grep -v inet6 | awk '{print $2}')"
-    [[ -n $res ]] && echo $res && return
-  done
 }

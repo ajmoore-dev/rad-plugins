@@ -1,2 +1,4 @@
-# rad-truckfondue-plugin
-A personalized plugin built on-top the brandon-fryslie/rad-shell zsh-based ecosystem
+# rad-plugin 🧰
+
+A set of plugins for [brandon-fryslie/rad-shell](https://github.com/brandon-fryslie/rad-shell).
+Think [Oh my ZSH!](https://ohmyz.sh), only faster. ⚡️
