@@ -12,12 +12,7 @@ alias gra="alias | grep -i"
 ### ee - Search ENV_VARs
 alias gre="env | grep -i"
 
-#k8s
-alias k="kubectl"
-alias kctx="kubectx"
-
 # git
-alias git="hub"
 alias ga="git add"
 alias gaa="git add --all"
 alias gb="git branch"
@@ -32,12 +27,14 @@ alias gra="git remote add"
 alias grau="git remote add upstream"
 alias grv="git remote -v"
 
-### git-rebase - Synchronizes origin/master with upstream/master
-git-rebase() {
-  git checkout master
-  git fetch upstream --prune
-  git rebase upstream/master
-  git push origin master
+### git-rebase - Synchronizes origin/(master|main) with upstream/(master|main)
+git-rebase () {
+	branch=${1:=master}
+
+	git checkout $branch
+	git fetch upstream --prune
+	git rebase upstream/${branch}
+	git push origin $branch
 }
 
 ### md - Convenience method to create a new directory and cd into it
